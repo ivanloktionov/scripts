@@ -4,7 +4,7 @@
 
 RESOURCE_TYPE=$1
 # Retrieve resource usage statistics from Kubernetes
-sudo kubectl top $RESOURCE_TYPE -A | tail -n +2 | while read line
+kubectl top $RESOURCE_TYPE -A | tail -n +2 | while read line
 do
   #Extract CPU and memory usage from the output
   NAMESPACE=$(echo $line | awk '{print $1}')
